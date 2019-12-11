@@ -1,0 +1,12 @@
+
+${Ansi.GREEN}
+${Ansi.GREEN},--.   ,--.,--. ,-----.,------.  ,-----.  ,---.  ,------.,------.,--.   ,--.,--. ,-----.,------.
+${Ansi.GREEN}|   `.'   ||  |'  .--./|  .--. ''  .-.  ''   .-' |  .---'|  .--. '\  `.'  / |  |'  .--./|  .---'
+${Ansi.GREEN}|  |'.'|  ||  ||  |    |  '--'.'|  | |  |`.  `-. |  `--, |  '--'.' \     /  |  ||  |    |  `--,
+${Ansi.GREEN}|  |   |  ||  |'  '--'\|  |\  \ '  '-'  '.-'    ||  `---.|  |\  \   \   /   |  |'  '--'\|  `---.
+${Ansi.GREEN}`--'   `--'`--' `-----'`--' '--' `-----' `-----' `------'`--' '--'   `-'    `--' `-----'`------'
+${Ansi.GREEN}
+
+${Ansi.RED} :: Spring Boot${Ansi.GREEN}${spring-boot.formatted-version} :: ${Ansi.DEFAULT}
+${Ansi.RED} :: Application Name ${Ansi.GREEN} ${spring.service.name} :: ${Ansi.DEFAULT}
+${Ansi.RED} :: Application Version ${Ansi.GREEN} ${project.version} :: ${Ansi.DEFAULT}
