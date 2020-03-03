@@ -2,7 +2,27 @@
 # PROFILE LOCAL
 #-----------------------------------------------------------------------------------------------
 spring:
-  profiles: local
+  profiles:
+    active: local
+# ----------------------------------------
+# WEB PROPERTIES
+# ----------------------------------------
+# EMBEDDED SERVER CONFIGURATION (https://github.com/spring-projects/spring-boot/blob/v2.0.6.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/web/ServerProperties.java)
+server:
+  port: ${SERVER_PORT:8080} # Server HTTP port.
+  servlet.context-path: / # Context path of the application.
+
+info:
+  application_name: @project.artifactId@
+  description: API versioning sample project
+  project_version: @project.version@
+
+# ----------------------------------------
+# SPRINGDOC PROPERTIES
+# ----------------------------------------
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
 
 #------------------------------
 # ACTUATOR PROPERTIES
@@ -34,3 +54,4 @@ management:
     git:
       enabled: true # Whether to enable git info.
       mode: full # Mode to use to expose git information.
+

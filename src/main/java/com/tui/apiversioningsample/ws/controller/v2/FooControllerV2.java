@@ -1,8 +1,11 @@
-package com.tui.apiversioningsample.ws.controller;
+package com.tui.apiversioningsample.ws.controller.v2;
 
 import com.tui.apiversioningsample.dto.FooV2DTO;
+import com.tui.apiversioningsample.ws.controller.v1.FooControllerV1;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,10 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Log4j2
 @RestController
 @RequestMapping(value = "/", headers = "Accept-Version=" + FooV2DTO.MEDIA_TYPE)
-@Tag(
-    name = "Foo Entity",
-    description = "Foo operations"
-)
 public class FooControllerV2 extends FooControllerV1 {
 
 
@@ -39,7 +38,9 @@ public class FooControllerV2 extends FooControllerV1 {
    */
   @Operation(
       tags = "Foo Entity",
-      description = "Get a foo"
+      description = "Get a foos",
+      parameters = {@Parameter(name = "accept-version", required = true, in = ParameterIn.HEADER,
+          schema = @Schema(name = "accept-version", type = "string", allowableValues = {FooV2DTO.MEDIA_TYPE}))}
   )
   @GetMapping(
       path = "/foos/",

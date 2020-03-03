@@ -1,7 +1,11 @@
-package com.tui.apiversioningsample.ws.controller;
+package com.tui.apiversioningsample.ws.controller.v1;
 
 import com.tui.apiversioningsample.dto.FooV1DTO;
+import com.tui.apiversioningsample.ws.controller.FooController;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -39,7 +43,9 @@ public class FooControllerV1 extends FooController {
    */
   @Operation(
       tags = "Foo Entity",
-      description = "Get a foo"
+      description = "Get a foo",
+      parameters = {@Parameter(name = "accept-version", required = true, in = ParameterIn.HEADER,
+          schema = @Schema(name = "accept-version", type = "string", allowableValues = {FooV1DTO.MEDIA_TYPE}))}
   )
   @GetMapping(
       path = "/foos/",
